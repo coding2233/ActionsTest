@@ -15,3 +15,8 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+    - name: python test
+      run: |
+        python3 --version
+        python test.py
+
