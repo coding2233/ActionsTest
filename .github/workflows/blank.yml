@@ -25,7 +25,13 @@ jobs:
         cmake ..
         make
         ./main
+    - uses: docker://gableroux/unity3d:2018.2.6f1
     - name: unity3d test
-      uses: docker://gableroux/unity3d:2018.2.6f1
+      run: |
+        pwd
+        uname -a 
+        cat /etc/*release
+        ls /opt
+      
     
 
