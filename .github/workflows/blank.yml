@@ -27,11 +27,21 @@ jobs:
         ./main
     - uses: docker://gableroux/unity3d:2018.2.6f1
     - name: unity3d test
+      env:
+         U_USERNAME: ${{ secrets.UNITY_USERNAME }}
+         U_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
       run: |
         pwd
         uname -a 
         cat /etc/*release
         ls /opt
+        docker run -it --rm -e "UNITY_USERNAME=$U_USERNAME" -e "UNITY_PASSWORD=$U_PASSWORD" -e "TEST_PLATFORM=linux" -e "WORKDIR=/root/project" -v "$(pwd):/root/project" gableroux/unity3d:2018.2.6f1
+        pwd
+        uname -a 
+        cat /etc/*release
+        ls /opt
+        xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -logFile /dev/stdout -batchmode -username "$UNITY_USERNAME" -password "$UNITY_PASSWORD"
+        exit
       
     
 
