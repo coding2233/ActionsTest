@@ -32,7 +32,6 @@ jobs:
       run: |
         /usr/bin/docker pull gableroux/unity3d:2018.2.6f1
         docker images
-       # docker run -it --rm -e "UNITY_USERNAME=$U_USERNAME" -e "UNITY_PASSWORD=$U_PASSWORD" -e "TEST_PLATFORM=linux" -e "WORKDIR=/root/project" -v "$(pwd):/root/project" docker.io/gableroux/unity3d:2018.2.6f1
         docker run --rm -it gableroux/unity3d:2018.2.6f1
         pwd
         uname -a 
