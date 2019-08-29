@@ -29,16 +29,11 @@ jobs:
       env:
          U_USERNAME: ${{ secrets.UNITY_USERNAME }}
          U_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-      run: |
-        /usr/bin/docker pull gableroux/unity3d:2018.2.6f1
-        docker images
-        docker run --rm -it gableroux/unity3d:2018.2.6f1
-        pwd
-        uname -a 
-        cat /etc/*release
-        ls /opt
-        #xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -logFile /dev/stdout -batchmode -username "$UNITY_USERNAME" -password "$UNITY_PASSWORD"
-        exit
+      uses: gableroux/unity3d:2018.2.6f1
+      with:
+        entrypoint: /bin/bash
+        args: xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -logFile /dev/stdout -batchmode -username "$UNITY_USERNAME" -password "$UNITY_PASSWORD"
+    
       
     
 
