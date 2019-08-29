@@ -27,9 +27,9 @@ jobs:
         ./main
     - name: unity3d test
       env:
-         U_USERNAME: ${{ secrets.UNITY_USERNAME }}
-         U_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-      uses: gableroux/unity3d:2018.2.6f1
+         U_USERNAME: ${{secrets.UNITY_USERNAME}}
+         U_PASSWORD: ${{secrets.UNITY_PASSWORD}}
+      uses: docker://gableroux/unity3d:2018.2.6f1
       with:
         entrypoint: /bin/bash
         args: xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -logFile /dev/stdout -batchmode -username "$UNITY_USERNAME" -password "$UNITY_PASSWORD"
