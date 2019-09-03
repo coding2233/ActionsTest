@@ -32,7 +32,7 @@ jobs:
       uses: docker://gableroux/unity3d:2018.2.6f1
       with:
         entrypoint: /bin/ls
-        args: /opt
+        args: /opt ./
       
     
 
