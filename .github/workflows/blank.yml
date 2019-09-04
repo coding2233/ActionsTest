@@ -31,7 +31,8 @@ jobs:
          U_PASSWORD: ${{secrets.UNITY_PASSWORD}}
       uses: docker://gableroux/unity3d:2018.2.6f1
       with:
-        args: xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -logFile /dev/stdout -batchmode -username ${{secrets.UNITY_USERNAME}} -password ${{secrets.UNITY_PASSWORD}}
+        entrypoint: ./test.sh
+        args: ${{secrets.UNITY_USERNAME}} ${{secrets.UNITY_PASSWORD}}
       
     
 
