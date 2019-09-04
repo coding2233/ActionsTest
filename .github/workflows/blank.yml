@@ -31,7 +31,7 @@ jobs:
          U_PASSWORD: ${{secrets.UNITY_PASSWORD}}
       uses: docker://gableroux/unity3d:2018.2.6f1
       with:
-        entrypoint: /usr/bin/bash
+        entrypoint: /bin/bash
         args: chmod +x ./test.sh && ./test.sh q000 ${{secrets.UNITY_USERNAME}}
         
       
