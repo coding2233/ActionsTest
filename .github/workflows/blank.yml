@@ -27,8 +27,8 @@ jobs:
         ./main
     - name: build docker
       run: |
-        docker build -t alpine-wanderer ./
-        docker run alpine-wanderer
+        docker build -t test-wanderer ./
+        docker run test-wanderer
       
     
 
