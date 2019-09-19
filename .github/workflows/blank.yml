@@ -25,14 +25,10 @@ jobs:
         cmake ..
         make
         ./main
-    - name: unity3d test
-      env:
-         U_USERNAME: ${{secrets.UNITY_USERNAME}}
-         U_PASSWORD: ${{secrets.UNITY_PASSWORD}}
-      uses: docker://gableroux/unity3d:2018.2.6f1
-      with:
-        entrypoint: /bin/ls
-        args: /opt ./
+    - name: build docker
+      run: docker build -t alpine-wanderer ./
+    - name: run test docker
+      uses: docker://alpine-wanderer
       
     
 
