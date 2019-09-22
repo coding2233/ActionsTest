@@ -29,6 +29,8 @@ jobs:
       run: |
         docker build -t test-wanderer ./
         docker run test-wanderer
+        docker pull gableroux/unity3d:latest
+        docker run --rm -v "$(pwd):/root/project" gableroux/unity3d:latest xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -projectPath /root/project
       
     
 
