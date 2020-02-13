@@ -9,14 +9,28 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Request manual activation file
-      id: getManualLicenseFile
-      uses: webbertakken/unity-request-manual-activation-file@v1.1
       with:
+        lfs: true
+
+    - name: Build Project
+      uses: webbertakken/unity-builder@v0.11
+      env:
+        UNITY_EMAIL: ${{ secrets.UNITY_USERNAME }}
+        UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        UNITY_LICENSE: ${{ secrets.UNITY_LICENSE_2019_3_0_f6 }}
+      with:
+        projectPath: TestProject/New
         unityVersion: 2019.3.0f6
-        
-    - name: Expose as artifact
+        targetPlatform: 
+          - StandaloneWindows64
+          - StandaloneLinux64
+          
+    - name: upload
       uses: actions/upload-artifact@v1
-      with:
-        name: ${{ steps.getManualLicenseFile.outputs.filePath }}
-        path: ${{ steps.getManualLicenseFile.outputs.filePath }}
+          with:
+            name: Build
+            path: build
+    
+    
+
+
