@@ -1,5 +1,6 @@
-name: Acquire activation file
+name: CI-Acquire
 on: [push]
+
 jobs:
   activation:
     name: Request manual activation file 🔑
@@ -13,7 +14,7 @@ jobs:
             uses: webbertakken/unity-request-manual-activation-file@v1.1
             with:
                 unityVersion: 2019.3.0f6
-                
+
         # Upload artifact (Unity_v20XX.X.XXXX.alf)
         - name: Expose as artifact
             uses: actions/upload-artifact@v1
