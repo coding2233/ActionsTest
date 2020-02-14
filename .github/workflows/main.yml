@@ -28,7 +28,7 @@ jobs:
     - name: Test Project
       id: myTestStep
       uses: webbertakken/unity-test-runner@v1.4
-      env:
+      with:
         projectPath: TestProject/New
         unityVersion: 2019.3.0f6
         artifactsPath: allmode-artifacts
