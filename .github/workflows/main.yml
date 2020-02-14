@@ -31,7 +31,14 @@ jobs:
       env:
         projectPath: TestProject/New
         unityVersion: 2019.3.0f6
+        artifactsPath: allmode-artifacts
 
+    - name: Test result
+      uses: actions/upload-artifact@v1
+      with:
+        name: Test results
+        path: ${{ steps.myTestStep.outputs.artifactsPath }}
+    
     - name: Build Project
       uses: webbertakken/unity-builder@v0.11
       with:
