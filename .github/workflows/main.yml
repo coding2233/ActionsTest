@@ -2,6 +2,11 @@ name: CI-Activation
 
 on: [push]
 
+env:
+  UNITY_EMAIL: ${{ secrets.UNITY_USERNAME }}
+  UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE_2019_3_0_f6 }}
+
 jobs:
   build:
 
@@ -11,13 +16,24 @@ jobs:
     - uses: actions/checkout@v2
       with:
         lfs: true
+    
+    - name: cache
+      uses: actions/cache@v1.1.2
+      with:
+        path: TestProject/New/Library
+        key: Library-New
+        restore-keys: |
+          Library-
+
+    - name: Test Project
+      id: myTestStep
+      uses: webbertakken/unity-test-runner@v1.4
+      env:
+        projectPath: TestProject/New
+        unityVersion: 2019.3.0f6
 
     - name: Build Project
       uses: webbertakken/unity-builder@v0.11
-      env:
-        UNITY_EMAIL: ${{ secrets.UNITY_USERNAME }}
-        UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-        UNITY_LICENSE: ${{ secrets.UNITY_LICENSE_2019_3_0_f6 }}
       with:
         projectPath: TestProject/New
         unityVersion: 2019.3.0f6
