@@ -13,5 +13,5 @@ jobs:
         lfs: true
     - name: test
       run: |
-        pip3 install protobuf
+        #pip3 install protobuf
         echo "hello "
