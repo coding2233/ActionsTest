@@ -13,5 +13,5 @@ jobs:
         lfs: true
     - name: test
       run: |
-        apt install -y python3-protobuf
+        pip3 install protobuf
         echo "hello "
