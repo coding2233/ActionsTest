@@ -11,7 +11,14 @@ jobs:
     - uses: actions/checkout@v2
       with:
         lfs: true
+    - name: Install Protoc
+      uses: Arduino/actions/setup-protoc@master
+      with:
+        version: '3.11.4'
     - name: test
       run: |
-        #pip3 install protobuf
+        pip3 install protobuf
         echo "hello "
+        protoc --version
+        pip3 list | grep protobuf
+        
