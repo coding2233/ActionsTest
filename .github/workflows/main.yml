@@ -3,22 +3,20 @@ name: CI-Activation
 on: [push]
 
 jobs:
-  test:
+  build:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
+    - name: Request manual activation file
+      id: getManualLicenseFile
+      uses: webbertakken/unity-request-manual-activation-file@v1.1
       with:
-        lfs: true
-    - name: Install Protoc
-      uses: Arduino/actions/setup-protoc@master
-      with:
-        version: '3.11.4'
-    - name: test
-      run: |
-        pip3 install protobuf
-        echo "hello "
-        protoc --version
-        pip3 list | grep protobuf
+        unityVersion: 2019.3.0f6
         
+    - name: Expose as artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: ${{ steps.getManualLicenseFile.outputs.filePath }}
+        path: ${{ steps.getManualLicenseFile.outputs.filePath }}
