@@ -39,7 +39,7 @@ jobs:
       uses: actions/cache@v2.1.5
       with:
         # A list of files, directories, and wildcard patterns to cache and restore
-        path: kkk/sshh/02.txt
+        path: kkk
         # An explicit key for restoring and saving the cache
         key: key-04
 
@@ -65,7 +65,7 @@ jobs:
       uses: actions/cache@v2.1.5
       with:
         # A list of files, directories, and wildcard patterns to cache and restore
-        path: kkk/sshh/02.txt
+        path: kkk
         # An explicit key for restoring and saving the cache
         key: key-04
     - name: show files
