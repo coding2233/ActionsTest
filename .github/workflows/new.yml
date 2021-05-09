@@ -31,7 +31,7 @@ jobs:
     steps:
     - name: create file
       run: |
-        echo "create filesss000000" >> 02.txt
+        echo "create filesss0asssssssssssssss00000" >> 02.txt
         md kkk\sshh
         copy 02.txt kkk\sshh
         dir kkk\sshh
@@ -39,7 +39,7 @@ jobs:
       uses: actions/cache@v2.1.5
       with:
         # A list of files, directories, and wildcard patterns to cache and restore
-        path: kkk\sshh
+        path: kkk/sshh/02.txt
         # An explicit key for restoring and saving the cache
         key: key-04
 
