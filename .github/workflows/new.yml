@@ -35,13 +35,10 @@ jobs:
         md kkk\sshh
         copy 02.txt kkk\sshh
         dir kkk\sshh
-    - name: Cache
-      uses: actions/cache@v2.1.5
+    - name: curl
+      uses: enflo/curl-action@master
       with:
-        # A list of files, directories, and wildcard patterns to cache and restore
-        path: "${{ github.workspace }}/kkk/sshh/02.txt"
-        # An explicit key for restoring and saving the cache
-        key: key-04
+        curl: " -T kkk/sshh/02.txt --url  https://dav.jianguoyun.com/dav/wanderer-sdk/kkk/sshh/02.txt -u \"{{ secrets.WEBDAV_NAME }}:{{ secrets.WEBDAV_PASSWORD }}\""
 
   j-03:
     runs-on: ubuntu-latest
@@ -61,11 +58,10 @@ jobs:
         path: 01.txt
         # An explicit key for restoring and saving the cache
         key: key-01
-    - name: Cache - 04
-      uses: actions/cache@v2.1.5
+    - name: curl
+      uses: enflo/curl-action@master
       with:
-        path: "${{ github.workspace }}/kkk/sshh/02.txt"
-        key: key-04
+        curl: " -O  https://dav.jianguoyun.com/dav/wanderer-sdk/kkk/sshh/02.txt -u \"{{ secrets.WEBDAV_NAME }}:{{ secrets.WEBDAV_PASSWORD }}\""
     - name: show files
       run: |
         ls -alh
