@@ -31,17 +31,15 @@ jobs:
     steps:
     - name: create file
       run: |
-        echo "create filesss0asssssssssssssss00000" >> 02.txt
+        echo "create filesss0asssssssssssssss00000" >> 04txt
         md kkk\sshh
-        copy 02.txt kkk\sshh
+        copy 04.txt kkk\sshh
         dir kkk\sshh
-        dir C:\\msys64\\usr\\bin
-        C:\\msys64\\usr\\bin\\pacman.exe --version
-        C:\\msys64\\usr\\bin\\pacman.exe -S curl
-        C:\\msys64\\usr\\bin\\curl.exe --help
     - name: msys-curl
       run: |
-        C:\\msys64\\usr\\bin\\curl.exe -T kkk/sshh/02.txt --url  https://dav.jianguoyun.com/dav/wanderer-sdk/kkk/sshh/02.txt -u "{{ secrets.WEBDAV_NAME }}:{{ secrets.WEBDAV_PASSWORD }}"
+        C:\\msys64\\usr\\bin\\curl.exe -T kkk/sshh/04.txt --url  https://dav.jianguoyun.com/dav/wanderer-sdk/kkk/sshh/04.txt -u {{ secrets.WEBDAV_NAME }}:{{ secrets.WEBDAV_PASSWORD }}
+        echo {{ secrets.WEBDAV_NAME }}
+        echo {{ secrets.WEBDAV_PASSWORD }}
         
   j-03:
     runs-on: ubuntu-latest
@@ -63,12 +61,11 @@ jobs:
         key: key-01
     - name: curl
       run: |
-        curl -O  https://dav.jianguoyun.com/dav/wanderer-sdk/kkk/sshh/02.txt -u "{{ secrets.WEBDAV_NAME }}:{{ secrets.WEBDAV_PASSWORD }}"
+        curl -O  https://dav.jianguoyun.com/dav/wanderer-sdk/kkk/sshh/04.txt -u {{ secrets.WEBDAV_NAME }}:{{ secrets.WEBDAV_PASSWORD }}
         ls -alh
     - name: show files
       run: |
         ls -alh
         cat 01.txt
         cat 02.txt
-        cat kkk/sshh/02.txt
     
