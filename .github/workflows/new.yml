@@ -35,7 +35,7 @@ jobs:
         md kkk\sshh
         copy 02.txt kkk\sshh
         dir kkk\sshh
-        ls -alh C:\\msys64\\usr\\bin
+        dir C:\\msys64\\usr\\bin
         C:\\msys64\\usr\\bin\\pacman.exe --version
         C:\\msys64\\usr\\bin\\pacman.exe -S curl
         C:\\msys64\\usr\\bin\\curl --help
