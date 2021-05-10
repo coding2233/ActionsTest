@@ -37,7 +37,7 @@ jobs:
         dir kkk\sshh
     - name: msys-curl
       run: |
-        C:\\msys64\\usr\\bin\\curl.exe "-T kkk/sshh/04.txt --url https://dav.jianguoyun.com/dav/sdk/04.txt -u {{ secrets.WEBDAV_NAME }}:{{ secrets.WEBDAV_PASSWORD }}"
+        C:\\msys64\\usr\\bin\\curl.exe -T kkk/sshh/04.txt --url https://dav.jianguoyun.com/dav/sdk/04.txt -u {{ secrets.WEBDAV_NAME }}:{{ secrets.WEBDAV_PASSWORD }}
         echo {{ secrets.WEBDAV_NAME }}
         echo {{ secrets.WEBDAV_PASSWORD }}
         
