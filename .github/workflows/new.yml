@@ -31,7 +31,7 @@ jobs:
     steps:
     - name: create file
       run: |
-        echo "create filesss0asssssssssssssss00000" >> 04txt
+        echo "create filesss0asssssssssssssss00000" >> 04.txt
         md kkk\sshh
         copy 04.txt kkk\sshh
         dir kkk\sshh
