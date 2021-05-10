@@ -35,10 +35,13 @@ jobs:
         md kkk\sshh
         copy 02.txt kkk\sshh
         dir kkk\sshh
-    - name: curl
-      run: |
-        docker pull appropriate/curl
-        docker run --rm appropriate/curl -T kkk/sshh/02.txt --url  https://dav.jianguoyun.com/dav/wanderer-sdk/kkk/sshh/02.txt -u "{{ secrets.WEBDAV_NAME }}:{{ secrets.WEBDAV_PASSWORD }}"
+        pacman --version
+        pacman -S curl
+        curl --help
+#     - name: curl
+#       run: |
+#         docker pull appropriate/curl
+#         docker run --rm appropriate/curl -T kkk/sshh/02.txt --url  https://dav.jianguoyun.com/dav/wanderer-sdk/kkk/sshh/02.txt -u "{{ secrets.WEBDAV_NAME }}:{{ secrets.WEBDAV_PASSWORD }}"
   j-03:
     runs-on: ubuntu-latest
     needs: [j-01,j-02,j-04]
