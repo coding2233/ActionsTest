@@ -39,6 +39,8 @@ jobs:
       run: |
         dir .
         dir kkk/sshh
+        ping jianguoyun.com
+        ping dav.janguoyun.com
         C:\msys64\usr\bin\curl.exe -T kkk/sshh/04.txt --url https://dav.jianguoyun.com/dav/sdk/04.txt -u dutifulwanderer@gmail.com:ad8ipy5juw9kuf5
         
   j-03:
