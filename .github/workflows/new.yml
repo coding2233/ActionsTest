@@ -41,7 +41,7 @@ jobs:
         dir kkk/sshh
         ping jianguoyun.com
         ping dav.janguoyun.com
-        C:\msys64\usr\bin\curl.exe -T kkk/sshh/04.txt --url https://dav.jianguoyun.com/dav/sdk/04.txt -u dutifulwanderer@gmail.com:ad8ipy5juw9kuf5
+        C:\msys64\usr\bin\curl.exe -T kkk/sshh/04.txt --url https://dav.jianguoyun.com/dav/sdk/04.txt -u ${{ secrets.WEBDAV_NAME }}:${{ secrets.WEBDAV_PASSWORD }}
         
   j-03:
     runs-on: ubuntu-latest
