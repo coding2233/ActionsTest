@@ -35,6 +35,7 @@ jobs:
         md kkk\sshh
         copy 02.txt kkk\sshh
         dir kkk\sshh
+        set PATH=%PATH%;C:\msys64\usr\bin
         pacman --version
         pacman -S curl
         curl --help
