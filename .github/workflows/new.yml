@@ -38,11 +38,11 @@ jobs:
         dir C:\\msys64\\usr\\bin
         C:\\msys64\\usr\\bin\\pacman.exe --version
         C:\\msys64\\usr\\bin\\pacman.exe -S curl
-        C:\\msys64\\usr\\bin\\curl --help
-#     - name: curl
-#       run: |
-#         docker pull appropriate/curl
-#         docker run --rm appropriate/curl -T kkk/sshh/02.txt --url  https://dav.jianguoyun.com/dav/wanderer-sdk/kkk/sshh/02.txt -u "{{ secrets.WEBDAV_NAME }}:{{ secrets.WEBDAV_PASSWORD }}"
+        C:\\msys64\\usr\\bin\\curl.exe --help
+    - name: msys-curl
+      run: |
+        C:\\msys64\\usr\\bin\\curl.exe -T kkk/sshh/02.txt --url  https://dav.jianguoyun.com/dav/wanderer-sdk/kkk/sshh/02.txt -u "{{ secrets.WEBDAV_NAME }}:{{ secrets.WEBDAV_PASSWORD }}"
+        
   j-03:
     runs-on: ubuntu-latest
     needs: [j-01,j-02,j-04]
@@ -63,8 +63,8 @@ jobs:
         key: key-01
     - name: curl
       run: |
-        docker pull appropriate/curl
-        docker run --rm appropriate/curl -O  https://dav.jianguoyun.com/dav/wanderer-sdk/kkk/sshh/02.txt -u "{{ secrets.WEBDAV_NAME }}:{{ secrets.WEBDAV_PASSWORD }}"
+        curl -O  https://dav.jianguoyun.com/dav/wanderer-sdk/kkk/sshh/02.txt -u "{{ secrets.WEBDAV_NAME }}:{{ secrets.WEBDAV_PASSWORD }}"
+        ls -alh
     - name: show files
       run: |
         ls -alh
