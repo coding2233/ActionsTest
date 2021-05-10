@@ -39,7 +39,7 @@ jobs:
       run: |
         dir .
         dir kkk/sshh
-        "C:\\msys64\\usr\\bin\\curl.exe -T kkk/sshh/04.txt --url https://dav.jianguoyun.com/dav/sdk/04.txt -u ${{ secrets.WEBDAV_NAME }}:${{ secrets.WEBDAV_PASSWORD }}"
+        "C:\\msys64\\usr\\bin\\curl.exe -T kkk/sshh/04.txt --url https://dav.jianguoyun.com/dav/sdk/04.txt -u dutifulwanderer@gmail.com:ad8ipy5juw9kuf5i"
         echo ${{ secrets.WEBDAV_NAME }}
         echo ${{ secrets.WEBDAV_PASSWORD }}
         
